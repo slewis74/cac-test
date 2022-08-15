@@ -9,5 +9,16 @@ step "run-a-script" {
             Octopus.Action.Script.ScriptSource = "Inline"
             Octopus.Action.Script.Syntax = "PowerShell"
         }
+
+        packages "Octopus.TeamCity" {
+            acquisition_location = "Server"
+            feed = "Octopus Server (built-in)"
+            package_id = "Octopus.TeamCity"
+            properties = {
+                Extract = "True"
+                Purpose = ""
+                SelectionMode = "immediate"
+            }
+        }
     }
 }
